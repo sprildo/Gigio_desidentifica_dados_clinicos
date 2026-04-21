@@ -27,7 +27,9 @@ NumPy: 2.4.4
 
 ### Installation
 
-To use the **pt_Gigio_desidentifica** template, you must install it directly via the Release link:
+To use the **pt_Gigio_desidentifica** template:
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sprildo/Gigio_desidentifica_dados_clinicos/blob/main/exemplo_de_uso.ipynb)
 
 ```bash
 pip install "pt_Gigio_desidentifica @ https://github.com/sprildo/Gigio_desidentifica_dados_clinicos/releases/download/v1.0.0/pt_Gigio_desidentifica-1.0.0-py3-none-any.whl"
