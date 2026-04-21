@@ -2,6 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/1216268919.svg)](https://doi.org/10.5281/zenodo.19678716)
 
+
 ## A Natural Language Processing (NLP) model developed for the de-identification and anonymization of Electronic Health Records (EHR) in Brazilian Portuguese. 
 This package is built on top of [spaCy](https://spacy.io/) and specifically trained to assist medical research and healthcare institutions in complying with the Brazilian General Data Protection Law (LGPD) by identifying and masking Protected Health Information (PHI).
 Details about the model's training can be found in [`docs/guidelines_anotacao.md`](docs/guidelines_anotacao.md). The data used was sourced from a single tertiary hospital in the state of São Paulo. It is strongly recommended that the model undergoes fine-tuning for generalization to other clinical contexts, and that a secondary rule-based de-identification method is utilized alongside it. This NER model was designed to work in conjunction with a previous layer of Regular Expressions (Regex) or anonymization heuristics.
