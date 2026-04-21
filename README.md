@@ -25,7 +25,7 @@ spaCy: 3.8.14
 Pandas: 2.2.2
 NumPy: 2.4.4
 
-## Installation
+### Installation
 
 To use the **pt_Gigio_desidentifica** template, you must install it directly via the Release link:
 
@@ -33,19 +33,19 @@ To use the **pt_Gigio_desidentifica** template, you must install it directly via
 pip install "pt_Gigio_desidentifica @ https://github.com/sprildo/Gigio_desidentifica_dados_clinicos/releases/download/v1.0.0/pt_Gigio_desidentifica-1.0.0-py3-none-any.whl"
 ```
 
-## Usage
+### Usage
 
 ```bash
 import spacy
 # Importing the handling function from your scripts folder.
-from scripts.preprocessamento import realizar_limpeza 
+from scripts.preprocessamento import tratar_texto
 
 # Carregando o modelo NER
 nlp = spacy.load("pt_Gigio_desidentifica")
 
 # 1. Texto original (exemplo)
 texto_bruto = "# ID: MARIA MIGUEL SOUZA, 52 ANOS, PROCEDENTE DE RIBEIRÃO PRETO, NATURAL DE Pontal
-registro: 112233a, contato telefone: (16) 99999-1111
+reg: 004567a, contato telefone: (16) 99999-1111
 
 # QUEIXA PRINCIPAL: DISARTRIA E DIFICULDADE PARA DEAMBULAR HÁ 1 DIA. 
 
@@ -82,7 +82,7 @@ SE CONFIRMAÇÃO DE SÍTIO PRIMÁRIO PULMONAR PROVÁVEL T1CN3M1C exame número:1
 Discutido com Prof. Antonio e Dra. Iara, contudas mantidas"
 
 # 2. text processing
-texto_tratado = realizar_limpeza(texto_bruto)
+texto_tratado = tratar_texto(texto_bruto)
 
 # 3. NER Model
 doc = nlp(texto_tratado)
@@ -91,4 +91,20 @@ doc = nlp(texto_tratado)
 print(f"Texto após tratamento: {texto_tratado}\n")
 for ent in doc.ents:
     print(f"Entidade: {ent.text} | Categoria: {ent.label_}")
+```
+
+### expected results
+
+Entidade: maria miguel souza | Categoria: NOME <br>
+Entidade: ribeirão preto | Categoria: CIDADE<br>
+Entidade: pontal | Categoria: CIDADE<br>
+Entidade: 004567a | Categoria: REGISTRO_HOSPITAL<br>
+Entidade: 16 99999-1111 | Categoria: TELEFONE<br>
+Entidade: juliana | Categoria: NOME<br>
+Entidade: hospital santo antonio | Categoria: INSTITUICAO<br>
+Entidade: número:123485679 | Categoria: DOCUMENTO<br>
+Entidade: antonio | Categoria: NOME<br>
+Entidade: iara | Categoria: NOME<br>
+
+
 
