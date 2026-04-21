@@ -25,3 +25,70 @@ spaCy: 3.8.14
 Pandas: 2.2.2
 NumPy: 2.4.4
 
+## Installation
+
+To use the **pt_Gigio_desidentifica** template, you must install it directly via the Release link:
+
+```bash
+pip install "pt_Gigio_desidentifica @ [https://github.com/sprildo/Gigio_desidentifica_dados_clinicos/releases/download/v1.0.0/pt_Gigio_desidentifica-1.0.0-py3.whl]"
+```
+
+## Usage
+
+```bash
+import spacy
+# Importing the handling function from your scripts folder.
+from scripts.preprocessamento import realizar_limpeza 
+
+# Carregando o modelo NER
+nlp = spacy.load("pt_Gigio_desidentifica")
+
+# 1. Texto original (exemplo)
+texto_bruto = "# ID: MARIA MIGUEL SOUZA, 52 ANOS, PROCEDENTE DE RIBEIRÃO PRETO, NATURAL DE Pontal
+registro: 112233a, contato telefone: (16) 99999-1111
+
+# QUEIXA PRINCIPAL: DISARTRIA E DIFICULDADE PARA DEAMBULAR HÁ 1 DIA. 
+
+# HMA: PACIENTE VEM À UNIDADE POR DEMANDA ESPONTÂNEA ACOMPANHADA DA FILHA Juliana REFERINDO QUE ACORDOU ONTEM
+COM DISARTRIA E PERDA DE FORÇA EM MEMBRO INFERIOR DIREITO DIFICULTANDO DEAMBULAÇÃO. FILHA REFERE QUE NO DIA
+ANTEIROR MÃE ENCONTRAVA-SE BEM, SEM DEFICITS FOCAIS. AINDA ONTEM DE MANHÃ, FILHA LEVOU MÃE AO
+PRONTO SOCORRO Hospital Santo Antonio, ONDE FOI AVALIADA POR NEUROLOGISTA, QUE INFORMOU BAIXA PROBABILIDADE
+DE SER SECUNDARIO A AVC E ORIENTOU QUE ELA DEVERIA REALIZAR EXAME DE IMAGEM. INFORMA QUE HOJE PERCEBEU PERDA DE FORÇA EM MSD. 
+REFERE QUE QUINTA FEIRA MEDICOS PRESCREVERAM MORFINA 10MG 4/4H + DIPIRONA PARA CONTROLE ALGICO.
+FOI PRESCRITO TAMBEM BISACODIL E LACTULOSE. REFERE CONSTIPAÇÃO DESDE SABADO. DIURESE PRESENTE, SEM PRODUTOS PATOLOGICOS,
+SEM DISURIA. REFERE BEIXA ACEITAÇÃO DA DIETA HÁ 2 DIAS. BOA INGESTA DE LIQUIDOS. 
+REFERE QUE HÁ 30 DIAS REALIZOU FIXACAO PROFILATICA EM TIBIA ESQUERDA POR LESÃO LITICA (META?)
+
+#AP:
+1) NÓDULO PULMONAR A DIREITA
+- realizada bx por broncoscopia em 17/07, sem intercorrências, aguarda ap
+- PET-CT METABOLISMO GLICOLÍTICO EM LINFONODOS DE CADEIA TORÁCICA INTERNA, MEDIASTINAL E HILAR PULMONAR DIREITA,
+CERVICAIS DIREITA, REGIÃO INGUINAL DIREITA, LESÕES OSTEOLÍTICAS EM 9º ARCO COSTAL DIREITO, ÍSQUIO E TÍBIA DIREITA.
+SE CONFIRMAÇÃO DE SÍTIO PRIMÁRIO PULMONAR PROVÁVEL T1CN3M1C exame número:123485679
+
+2) DPOC GOLD IIIB
+
+3) LESÃO LÍTICA NA TÍBIA DIREITA (META PULMONAR?)
+23/07 - FIXAÇÃO PROFILÁTICA DE TIBIA ESQUERDA COM HASTE INTRAMEDULAR
+
+# MUC:
+- MORFINA 10MG 4/4H
+- DIPIRONA 1G 6/6H SN
+- LACTULOSE
+- BISACODIL
+- ANORO 1 PUFF/DIA
+
+# ALERGIAS: NEGA
+Discutido com Prof. Antonio e Dra. Iara, contudas mantidas"
+
+# 2. text processing
+texto_tratado = realizar_limpeza(texto_bruto)
+
+# 3. NER Model
+doc = nlp(texto_tratado)
+
+# 4. Results
+print(f"Texto após tratamento: {texto_tratado}\n")
+for ent in doc.ents:
+    print(f"Entidade: {ent.text} | Categoria: {ent.label_}")
+
