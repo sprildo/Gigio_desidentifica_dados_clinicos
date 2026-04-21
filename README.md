@@ -115,16 +115,20 @@ Entidade: iara | Categoria: NOME<br>
 
 **Formato APA:**
 
-> Silva, Rildo Pinto da. (2026). *pt_Gigio_desidentifica: Modelo NER para Desidentificação de Dados Clínicos em Português* [Software]. Zenodo. https://doi.org/10.5281/zenodo.19678717
+> Silva, Rildo Pinto da.; Pazin-Filho, Antonio (2026). *pt_Gigio_desidentifica: Modelo NER para Desidentificação de Dados Clínicos em Português* [Software]. Zenodo. https://doi.org/10.5281/zenodo.19678717
 
 **BibTeX:**
 
 ```bibtex
 @software{pt_gigio_desidentifica,
-  author       = {Silva, Rildo Pinto da},
+  author       = {Silva, Rildo Pinto da},{Pazin-Filho, Antonio}
   title        = {pt\_Gigio\_desidentifica: Modelo NER para Desidentificação de Dados Clínicos em Português},
   year         = {2026},
   publisher    = {Zenodo},
   doi          = {10.5281/zenodo.19678717},
   url          = {[https://doi.org/10.5281/zenodo.19678717](https://doi.org/10.5281/zenodo.19678717)}
 }
+```
+
+## Acknowledgements
+APF author CNPq Research Productivity Scholarship - Level 2 Brazil - 303187/2022-0
