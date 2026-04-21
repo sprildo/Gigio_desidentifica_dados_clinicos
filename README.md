@@ -30,7 +30,7 @@ NumPy: 2.4.4
 To use the **pt_Gigio_desidentifica** template, you must install it directly via the Release link:
 
 ```bash
-pip install "pt_Gigio_desidentifica @ https://github.com/sprildo/Gigio_desidentifica_dados_clinicos/releases/download/v1.0.0/pt_Gigio_desidentifica-1.0.0-py3.whl"
+pip install "pt_Gigio_desidentifica @ https://github.com/sprildo/Gigio_desidentifica_dados_clinicos/releases/download/v1.0.0/pt_Gigio_desidentifica-1.0.0-py3-none-any.whl"
 ```
 
 ## Usage
