@@ -1,5 +1,7 @@
 # pt_Gigio_desidentifica: Clinical NER Model for Brazilian Portuguese
 
+[![DOI](https://zenodo.org/badge/1216268919.svg)](https://doi.org/10.5281/zenodo.19678716)
+
 ## A Natural Language Processing (NLP) model developed for the de-identification and anonymization of Electronic Health Records (EHR) in Brazilian Portuguese. 
 This package is built on top of [spaCy](https://spacy.io/) and specifically trained to assist medical research and healthcare institutions in complying with the Brazilian General Data Protection Law (LGPD) by identifying and masking Protected Health Information (PHI).
 Details about the model's training can be found in [`docs/guidelines_anotacao.md`](docs/guidelines_anotacao.md). The data used was sourced from a single tertiary hospital in the state of São Paulo. It is strongly recommended that the model undergoes fine-tuning for generalization to other clinical contexts, and that a secondary rule-based de-identification method is utilized alongside it. This NER model was designed to work in conjunction with a previous layer of Regular Expressions (Regex) or anonymization heuristics.
@@ -108,5 +110,20 @@ Entidade: número:123485679 | Categoria: DOCUMENTO<br>
 Entidade: antonio | Categoria: NOME<br>
 Entidade: iara | Categoria: NOME<br>
 
+### how to cite
 
+**Formato APA:**
 
+> Silva, Rildo Pinto da. (2026). *pt_Gigio_desidentifica: Modelo NER para Desidentificação de Dados Clínicos em Português* [Software]. Zenodo. https://doi.org/10.5281/zenodo.19678717
+
+**BibTeX:**
+
+```bibtex
+@software{pt_gigio_desidentifica,
+  author       = {Silva, Rildo Pinto da},
+  title        = {pt\_Gigio\_desidentifica: Modelo NER para Desidentificação de Dados Clínicos em Português},
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.19678717},
+  url          = {[https://doi.org/10.5281/zenodo.19678717](https://doi.org/10.5281/zenodo.19678717)}
+}
