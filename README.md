@@ -121,12 +121,11 @@ Entidade: iara | Categoria: NOME<br>
 
 ```bibtex
 @software{pt_gigio_desidentifica,
-  author       = {Silva, Rildo Pinto da},{Pazin-Filho, Antonio}
-  title        = {pt\_Gigio\_desidentifica: Modelo NER para Desidentificação de Dados Clínicos em Português},
+  author       = {Silva, Rildo Pinto da, Pazin-Filho, Antonio}
+  title        = {pt_Gigio_desidentifica: Modelo NER para Desidentificação de Dados Clínicos em Português},
   year         = {2026},
   publisher    = {Zenodo},
-  doi          = {10.5281/zenodo.19678717},
-  url          = {[https://doi.org/10.5281/zenodo.19678717](https://doi.org/10.5281/zenodo.19678717)}
+  doi          = {https://doi.org/10.5281/zenodo.19678717}
 }
 ```
 
