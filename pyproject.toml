@@ -17,4 +17,7 @@ annotation = [
     # Prodigy exige licença paga (https://prodi.gy) — não está no PyPI público.
     # Instale separadamente: pip install prodigy -f https://SEU-TOKEN@download.prodi.gy
 ]
+dev = [
+    "pytest>=8.0",
+]
 EOF
