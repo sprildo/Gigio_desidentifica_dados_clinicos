@@ -13,10 +13,10 @@ The metrics below detail the performance of the final trained model (`pt_Gigio_d
 
 | Entity Class | Precision | Recall (Sensitivity) | F1-Score |
 | :--- | :--- | :--- | :--- |
-| **TELEFONE** | 93.18% | 93.18% | 0.6667 |
+| **TELEFONE** | 93.18% | 51.90% | 0.6667 |
 | **DOCUMENTO** | 97.87% | 95.30% | 0.9657 |
-| **NOME** | 95.29% | 92.33% | 0.9377 |
-| **CIDADE** | 93.83% | 70.85% | 0.8127 |
+| **NOME** | 95.26% | 92.33% | 0.9377 |
+| **CIDADE** | 95.29% | 70.85% | 0.8127 |
 | **INSTITUICAO** | 78.54% | 48.87% | 0.6025 |
 | **ENDERECO** | 0% | 0% | 0.0 |
 | **GLOBAL (All)** | **94.91%** | **88.66%** | **0.9168** |
