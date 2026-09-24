@@ -23,11 +23,6 @@ The metrics below detail the performance of the final trained model (`pt_Gigio_d
 
 The `REGISTRO_HOSPITAL` Patient registration data from the hospital admission appeared in only 3 records after automatic processing.*
 
-### Requirements
-spaCy: 3.8.14
-Pandas: 2.2.2
-NumPy: 2.4.4
-
 ### Installation
 
 To use the **pt_Gigio_desidentifica** template:
@@ -37,6 +32,7 @@ To use the **pt_Gigio_desidentifica** template:
 ```bash
 pip install "pt_Gigio_desidentifica @ https://github.com/sprildo/Gigio_desidentifica_dados_clinicos/releases/download/v1.0.0/pt_Gigio_desidentifica-1.0.0-py3-none-any.whl"
 ```
+Note: tratar_texto is not included in the installed package. It is distributed separately as scripts/preprocessamento.py in this repository and can only be used after cloning the repository — it cannot be imported from the pip-installed package alone.
 
 ### Usage
 
