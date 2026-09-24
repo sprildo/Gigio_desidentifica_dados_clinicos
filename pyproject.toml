@@ -1,0 +1,20 @@
+cat > pyproject.toml << 'EOF'
+[project]
+name = "pt-gigio-desidentifica-tools"
+version = "1.0.0"
+description = "De-identification pipeline for Brazilian Portuguese clinical text"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "spacy>=3.8.14,<3.9.0",
+    "pandas==2.2.2",
+    "numpy==1.26.4",
+    "mysql-connector-python==9.4.0",
+    "openpyxl==3.1.5",
+]
+
+[project.optional-dependencies]
+annotation = [
+    # Prodigy exige licença paga (https://prodi.gy) — não está no PyPI público.
+    # Instale separadamente: pip install prodigy -f https://SEU-TOKEN@download.prodi.gy
+]
+EOF
