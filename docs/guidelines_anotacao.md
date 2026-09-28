@@ -12,7 +12,7 @@ The annotation was performed prioritizing sensitivity in the identification of P
 2) Mark `HOSPITAL RECORDS` that were not handled by regular expressions (hospital records are standardized and easily treatable by regex).
 3) `DOCUMENTS`: Any type of records such as CRM, Corem, CPF, etc. were annotated, especially the hospital's exam numbers.
 4) `ADDRESS`: The continuous block was marked.
-5) `INSTITUTION`: Names of hospitals, clinics, and healthcare units; if the text only cited the municipality name, it was marked as CITY.
+5) INSTITUTION: Names of hospitals, clinics, and healthcare units. When the institution name included a city name, the city was marked as CITY and the rest of the name as INSTITUTION. If the text only cited the municipality name, it was marked as CITY.
 6) `CITY`: Municipalities of birth, provenance, or transfer.
 7) `TELEPHONE`: Telephone contact numbers that were not previously captured by regular expressions (Regex).
 
