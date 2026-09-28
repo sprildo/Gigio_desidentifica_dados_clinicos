@@ -95,6 +95,14 @@ doc = nlp(texto_tratado)
 print(f"Texto após tratamento: {texto_tratado}\n")
 for ent in doc.ents:
     print(f"Entidade: {ent.text} | Categoria: {ent.label_}")
+
+
+# 5. Masking (performed by the calling application, not by the package)
+texto_mascarado = texto_tratado
+for ent in sorted(doc.ents, key=lambda e: e.start_char, reverse=True):
+    texto_mascarado = texto_mascarado[:ent.start_char] + f"[{ent.label_}]" + texto_mascarado[ent.end_char:]
+print(texto_mascarado)
+
 ```
 
 ### expected results
