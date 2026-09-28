@@ -83,7 +83,7 @@ SE CONFIRMAÇÃO DE SÍTIO PRIMÁRIO PULMONAR PROVÁVEL T1CN3M1C exame número:1
 - ANORO 1 PUFF/DIA
 
 # ALERGIAS: NEGA
-Discutido com Prof. Antonio e Dra. Iara, condudas mantidas"""
+Discutido com Prof. Antonio e Dra. Iara, condutas mantidas"""
 
 # 2. text processing
 texto_tratado = tratar_texto(texto_bruto)
@@ -117,8 +117,6 @@ Entidade: hospital santo antonio | Categoria: INSTITUICAO<br>
 Entidade: número:123485679 | Categoria: DOCUMENTO<br>
 Entidade: antonio | Categoria: NOME<br>
 Entidade: iara | Categoria: NOME<br>
-
-### how to cite
 
 ### How to cite
 
