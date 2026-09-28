@@ -5,25 +5,30 @@
 This package is built on top of [spaCy](https://spacy.io/) and specifically trained to assist medical research and healthcare institutions in complying with the Brazilian General Data Protection Law (LGPD) by identifying and masking Protected Health Information (PHI).
 Details about the model's training can be found in [`docs/guidelines_anotacao.md`](docs/guidelines_anotacao.md). The data used was sourced from a single tertiary hospital in the state of São Paulo. It is strongly recommended that the model undergoes fine-tuning for generalization to other clinical contexts, and that a secondary rule-based de-identification method is utilized alongside it. This NER model was designed to work in conjunction with a previous layer of Regular Expressions (Regex) or anonymization heuristics.
 
+### Versions
+
+Repository release v1.1.0. Model package: `pt_Gigio_desidentifica` 1.0.0 (all reported metrics refer to this model version; the model was not retrained after release v1.0.0).
+
 ### Performance by Entity
 
-The metrics below detail the performance of the final trained model (`pt_Gigio_desidentifica`). The overall F1-score of 0.9168.
+The metrics below were obtained for the model package `pt_Gigio_desidentifica` 1.0.0 on the held-out test set (n = 550 hospital admissions; see the article for its composition). Overall F1-score: 0.9168.
 
-| Entity Class | Precision | Recall (Sensitivity) | F1-Score |
-| :--- | :--- | :--- | :--- |
-| **TELEFONE** | 93.18% | 51.90% | 0.6667 |
-| **DOCUMENTO** | 97.87% | 95.30% | 0.9657 |
-| **NOME** | 95.26% | 92.33% | 0.9377 |
-| **CIDADE** | 95.29% | 70.85% | 0.8127 |
-| **INSTITUICAO** | 78.54% | 48.87% | 0.6025 |
-| **ENDERECO** | 0% | 0% | 0.0 |
-| **GLOBAL (All)** | **94.91%** | **88.66%** | **0.9168** |
+| Entity Class | N | Precision | Recall (Sensitivity) | F1-Score |
+| :--- | ---: | :--- | :--- | :--- |
+| **NOME** | 6646 | 95.26% | 92.33% | 0.9377 |
+| **DOCUMENTO** | 915 | 97.87% | 95.30% | 0.9657 |
+| **CIDADE** | 542 | 95.29% | 70.85% | 0.8127 |
+| **INSTITUICAO** | 397 | 78.54% | 48.87% | 0.6025 |
+| **TELEFONE** | 79 | 93.18% | 51.90% | 0.6667 |
+| **ENDERECO** | 21 | 0% | 0% | 0.0 |
+| **REGISTRO_HOSPITAL** | 3 | 0% | 0% | 0.0 |
+| **GLOBAL (All)** | **8603** | **94.91%** | **88.66%** | **0.9168** |
 
-The `REGISTRO_HOSPITAL` Patient registration data from the hospital admission appeared in only 3 records after automatic processing.*
+N = number of annotated entities (TP + FN). REGISTRO_HOSPITAL occurred only 3 times in the test set, so its estimate is unreliable. Human review of the output is mandatory.
 
 ### Installation
 
-To use the **pt_Gigio_desidentifica** template:
+To use the **pt_Gigio_desidentifica** model:
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sprildo/Gigio_desidentifica_dados_clinicos/blob/main/exemplo_de_uso.ipynb)
 
@@ -34,7 +39,7 @@ Note: tratar_texto is not included in the installed package. It is distributed s
 
 ### Usage
 
-```bash
+```python
 import spacy
 # Importing the handling function from your scripts folder.
 from scripts.preprocessamento import tratar_texto
@@ -43,7 +48,7 @@ from scripts.preprocessamento import tratar_texto
 nlp = spacy.load("pt_Gigio_desidentifica")
 
 # 1. Texto original (exemplo)
-texto_bruto = "# ID: MARIA MIGUEL SOUZA, 52 ANOS, PROCEDENTE DE RIBEIRÃO PRETO, NATURAL DE Pontal
+texto_bruto = """# ID: MARIA MIGUEL SOUZA, 52 ANOS, PROCEDENTE DE RIBEIRÃO PRETO, NATURAL DE Pontal
 reg: 004567a, contato telefone: (16) 99999-1111
 
 # QUEIXA PRINCIPAL: DISARTRIA E DIFICULDADE PARA DEAMBULAR HÁ 1 DIA. 
@@ -78,7 +83,7 @@ SE CONFIRMAÇÃO DE SÍTIO PRIMÁRIO PULMONAR PROVÁVEL T1CN3M1C exame número:1
 - ANORO 1 PUFF/DIA
 
 # ALERGIAS: NEGA
-Discutido com Prof. Antonio e Dra. Iara, contudas mantidas"
+Discutido com Prof. Antonio e Dra. Iara, condudas mantidas"""
 
 # 2. text processing
 texto_tratado = tratar_texto(texto_bruto)
@@ -107,19 +112,21 @@ Entidade: iara | Categoria: NOME<br>
 
 ### how to cite
 
-**Formato APA:**
+### How to cite
 
-> Silva, Rildo Pinto da.; Pazin-Filho, Antonio (2026). *pt_Gigio_desidentifica: Modelo NER para Desidentificação de Dados Clínicos em Português* [Software]. Zenodo. https://doi.org/10.5281/zenodo.19678717
+**APA:**
+
+> Silva, Rildo Pinto da; Pazin-Filho, Antonio (2026). *pt_Gigio_desidentifica: Modelo NER para Desidentificação de Dados Clínicos em Português* (Version 1.1.0) [Software]. GitHub. https://github.com/sprildo/Gigio_desidentifica_dados_clinicos
 
 **BibTeX:**
 
 ```bibtex
 @software{pt_gigio_desidentifica,
-  author       = {Silva, Rildo Pinto da, Pazin-Filho, Antonio}
-  title        = {pt_Gigio_desidentifica: Modelo NER para Desidentificação de Dados Clínicos em Português},
-  year         = {2026},
-  publisher    = {Zenodo},
-  doi          = {https://doi.org/10.5281/zenodo.19678717}
+  author  = {Silva, Rildo Pinto da and Pazin-Filho, Antonio},
+  title   = {pt_Gigio_desidentifica: Modelo NER para Desidentificação de Dados Clínicos em Português},
+  year    = {2026},
+  version = {1.1.0},
+  url     = {https://github.com/sprildo/Gigio_desidentifica_dados_clinicos}
 }
 ```
 
