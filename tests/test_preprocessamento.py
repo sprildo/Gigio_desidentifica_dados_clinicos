@@ -9,14 +9,14 @@ def test_lowercases_text():
 
 def test_masks_hospital_registration_number():
     resultado = tratar_texto("registro 1234567a do paciente")
-    assert "[registro]" in resultado
+    assert "[REGISTRO]" in resultado
     assert "1234567a" not in resultado
 
 
 def test_does_not_mask_numbers_of_different_length():
     # 8 dígitos não deve ser mascarado pelo padrão de registro (7 dígitos + letra)
     resultado = tratar_texto("numero 12345678a de identificacao")
-    assert "[registro]" not in resultado
+    assert "[REGISTRO]" not in resultado
 
 
 def test_removes_hashtags_and_quotes():
