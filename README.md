@@ -1,7 +1,5 @@
 # pt_Gigio_desidentifica: Clinical NER Model for Brazilian Portuguese
 
-[![DOI](https://zenodo.org/badge/1216268919.svg)](https://doi.org/10.5281/zenodo.19678716)
-
 
 ## A Natural Language Processing (NLP) model developed for the de-identification and anonymization of Electronic Health Records (EHR) in Brazilian Portuguese. 
 This package is built on top of [spaCy](https://spacy.io/) and specifically trained to assist medical research and healthcare institutions in complying with the Brazilian General Data Protection Law (LGPD) by identifying and masking Protected Health Information (PHI).
