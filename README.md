@@ -28,6 +28,10 @@ N = number of annotated entities (TP + FN). REGISTRO_HOSPITAL occurred only 3 ti
 
 ### Installation
 
+Requirements: Python 3.11. The pip command below installs the model together with spaCy (>=3.8.14,<3.9.0).
+The optional pre-processing script (scripts/preprocessamento.py) uses only the Python standard library.
+To run the automated tests from a repository clone: `pip install ".[dev]"` followed by `pytest`.
+
 To use the **pt_Gigio_desidentifica** model:
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sprildo/Gigio_desidentifica_dados_clinicos/blob/main/exemplo_de_uso.ipynb)
