@@ -3,7 +3,16 @@
 
 ## A Natural Language Processing (NLP) model developed for the de-identification and anonymization of Electronic Health Records (EHR) in Brazilian Portuguese. 
 This package is built on top of [spaCy](https://spacy.io/) and specifically trained to assist medical research and healthcare institutions in complying with the Brazilian General Data Protection Law (LGPD) by identifying and masking Protected Health Information (PHI).
-Details about the model's training can be found in [`docs/guidelines_anotacao.md`](docs/guidelines_anotacao.md). The data used was sourced from a single tertiary hospital in the state of São Paulo. It is strongly recommended that the model undergoes fine-tuning for generalization to other clinical contexts, and that a secondary rule-based de-identification method is utilized alongside it. This NER model was designed to work in conjunction with a previous layer of Regular Expressions (Regex) or anonymization heuristics.
+Details about the model's training can be found in [`docs/guidelines_anotacao.md`](docs/guidelines_anotacao.md). The data used was sourced from a single tertiary hospital in the state of São Paulo. This NER model was designed to work in conjunction with a previous layer of Regular Expressions (Regex) or anonymization heuristics.
+
+
+### ⚠️ Intended use and limitations
+
+- **This model alone does not guarantee de-identification.** It is intended as one layer of a broader de-identification strategy, together with a preceding rule-based layer (regular expressions or heuristics).
+- **Human review of the output is mandatory before any data release.** On the held-out test set, recall was 0.5107 for institutions, 0.5833 for telephone numbers, 0.7584 for cities and 0.9351 for names, and no address (ENDERECO) or hospital registration number was detected.
+- **Addresses must be removed by an additional layer** (rules, heuristics or targeted human review); the model should never be relied on for this class.
+- **Dates and ages are not labeled** (by design, to preserve the chronology of the clinical history) and must be handled separately if required.
+- The model was trained and evaluated on records from a single tertiary hospital in the state of São Paulo; fine-tuning and local validation are recommended before use in other institutions.
 
 ### Versions
 
@@ -11,21 +20,20 @@ Repository release v1.1.0. Model package: `pt_Gigio_desidentifica` 1.0.0 (all re
 
 ### Performance by Entity
 
-The metrics below were obtained for the model package `pt_Gigio_desidentifica` 1.0.0 on the held-out test set (n = 550 hospital admissions; see the article for its composition). Overall F1-score: 0.9168.
+The metrics below were obtained for the model package `pt_Gigio_desidentifica` 1.0.0 on the held-out test set (n = 550 hospital admissions; see the article for its composition). Overall F1-score: 0.9237
 
 | Entity Class | N | Precision | Recall (Sensitivity) | F1-Score |
 | :--- | ---: | :--- | :--- | :--- |
-| **NOME** | 6646 | 95.26% | 92.33% | 0.9377 |
-| **DOCUMENTO** | 915 | 97.87% | 95.30% | 0.9657 |
-| **CIDADE** | 542 | 95.29% | 70.85% | 0.8127 |
-| **INSTITUICAO** | 397 | 78.54% | 48.87% | 0.6025 |
-| **TELEFONE** | 79 | 93.18% | 51.90% | 0.6667 |
+| **NOME** | 6530 | 94.80% | 93.51% | 0.9415 |
+| **DOCUMENTO** | 898 | 97.87% | 97.10% | 0.9748 |
+| **CIDADE** | 505 | 95.04% | 75.84% | 0.8436 |
+| **INSTITUICAO** | 374 | 77.33% | 51.07% | 0.6151 |
+| **TELEFONE** | 60 | 79.55% | 58.33% | 0.6731 |
 | **ENDERECO** | 21 | 0% | 0% | 0.0 |
 | **REGISTRO_HOSPITAL** | 3 | 0% | 0% | 0.0 |
-| **GLOBAL (All)** | **8603** | **94.91%** | **88.66%** | **0.9168** |
+| **GLOBAL (All)** | **8391** | **94.41%** | **90.42%** | **0.9237** |
 
-N = number of annotated entities (TP + FN). REGISTRO_HOSPITAL occurred only 3 times in the test set, so its estimate is unreliable. Human review of the output is mandatory.
-
+N = number of annotated entities (TP + FN). See Intended use and limitations above.
 ### Installation
 
 Requirements: Python 3.11. The pip command below installs the model together with spaCy (>=3.8.14,<3.9.0).
