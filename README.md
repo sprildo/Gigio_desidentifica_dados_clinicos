@@ -130,6 +130,9 @@ Entidade: número:123485679 | Categoria: DOCUMENTO<br>
 Entidade: antonio | Categoria: NOME<br>
 Entidade: iara | Categoria: NOME<br>
 
+## License
+CC BY-NC 4.0 (see LICENSE.txt) — research and other non-commercial use only. For commercial use, please contact the authors.
+
 ### How to cite
 
 **APA:**
