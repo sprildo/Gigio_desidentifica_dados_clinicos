@@ -1,6 +1,6 @@
 ## Annotation Guidelines and Training Methodology (NER)
 
-This document details the corpus construction process, entity annotation rules, and the Active Learning cycle used to train the pt_desidentificacao_ner model. The data used in this project were extracted from electronic health records of a single tertiary hospital in the state of São Paulo.
+This document details the corpus construction process, entity annotation rules, and the Active Learning cycle used to train the pt_Gigio_desidentifica model. The data used in this project were extracted from electronic health records of a single tertiary hospital in the state of São Paulo.
 
 ## 1. Corpus Composition and Data Extraction
 
@@ -36,7 +36,7 @@ The exact code used in this step is available in the preprocessamento.py script.
 
 ## 3. Annotation Methodology (Prodigy Workflow)
 Training utilized the Prodigy tool (v1.18.5), following an Active Learning workflow structured in three phases:
-1. Seed Batch (Cold Start): 100% manual annotation of 301 records. This phase ensured the introduction of annotation rules without the bias of a pre-trained model.
+1. Seed Batch (Cold Start): 100% manual annotation of 400 records. This phase ensured the introduction of annotation rules without the bias of a pre-trained model.
 2. Assisted Annotation (Human-in-the-loop): Transition to review mode, where intermediate models pre-annotated the texts.
 3. Batch Fusion (Cumulative Training): At each new cycle, the annotation datasets and assisted reviews were concatenated and trained from scratch, using data isolation to avoid double annotation of already reviewed records.
 
